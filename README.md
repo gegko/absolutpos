@@ -1,8 +1,10 @@
 запуск:
- - гит клон
- - сиди в папку
- - переименовать env в .env
- - докер компоуз ап
+
+```
+git clone https://github.com/gegko/absolutpos.git
+cd absolutpos/
+mv env .env
+```
 
 А ТАКЖЕ
 
@@ -10,7 +12,7 @@
 docker cp backup.sql absolutpos:.
 docker exec absolutpos psql -U absolutpos < backup.sql
 ```
-(чтобы закинуть тестовые данные)
+(чтобы закинуть тестовые данные. P.S. возможно придётся psql'нуть два раза и перекомпоузить)
 
 ======================================================
 
