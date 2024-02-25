@@ -345,6 +345,7 @@ class QuestionCard(ft.UserControl):
                 ),
             ],
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+            col={"xs": 6, "sm": 6, "md": 5, "lg": 3, "xl": 3},
         )
         self.dropdowns = ft.Column(
             [
@@ -376,6 +377,7 @@ class QuestionCard(ft.UserControl):
             width=300,
             height=300,
             scroll=ft.ScrollMode.AUTO,
+            col={"xs": 6, "sm": 6, "md": 5, "lg": 3, "xl": 3},
         )
         self.content = ft.Row(
             controls=[
@@ -383,6 +385,7 @@ class QuestionCard(ft.UserControl):
                 self.dropdowns,
             ],
             spacing=25,
+            scroll=ft.ScrollMode.AUTO,
         )
 
     def change_question(self, e: ft.ControlEvent):
@@ -469,7 +472,7 @@ class QuestionCard(ft.UserControl):
                         right=border_side,
                         left=ft.BorderSide(5, ft.colors.BLUE_500),
                     ),
-                    col=6,
+                    col={"xs": 12, "sm": 12, "md": 10, "lg": 6, "xl": 6},
                     height=300,
                     padding=25,
                 )
@@ -533,14 +536,14 @@ def initial_questions_header():
                 ],
                 spacing=5,
             ),
-            col=6,
+            col={"xs": 12, "sm": 12, "md": 10, "lg": 6, "xl": 6},
         )
     ], alignment=ft.MainAxisAlignment.CENTER)
 
 
 class Question(ft.UserControl):
     def __init__(self, title: str, hint: str, question_id: str | None = None, col: int | None = None):
-        super().__init__(col=6)
+        super().__init__(col={"xs": 12, "sm": 12, "md": 10, "lg": 6, "xl": 6})
         self.title = title
         self.hint = hint
         self.question_id = question_id
@@ -681,7 +684,7 @@ class PollGrid(ft.UserControl):
 class BusinessTypeAreaDropdown(ft.UserControl):
 
     def __init__(self, visible=False):
-        super().__init__(col=6, visible=visible)
+        super().__init__(col={"xs": 12, "sm": 12, "md": 10, "lg": 6, "xl": 6}, visible=visible)
         self.business_types = asyncio.run(prefetch_business_type_data())
         self.busines_type_options = [
             ft.dropdown.Option(text=business_type["name"], key=business_type["id"])
@@ -774,12 +777,12 @@ def poll():
     return ft.ResponsiveRow(
         controls=[
             ft.Column(
-                col=6,
+                col={"xs": 12, "sm": 12, "md": 10, "lg": 6, "xl": 6},
                 spacing=20,
                 controls=[
                     initial_questions_header(),
                     ft.Column(
-                        col=6,
+                        col={"xs": 12, "sm": 12, "md": 10, "lg": 6, "xl": 6},
                         controls=[
                             Question(
                                 title="Название заведения", hint="Введите название"
